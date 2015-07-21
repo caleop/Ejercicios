@@ -3,12 +3,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Temperaturas {
 	public static void main(String[] args) throws IOException {
 		ArrayList<Double> temperaturas = new ArrayList<Double>();
-		String opcion;
-		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		int opcion;
+		Scanner sc = new Scanner(System.in);
 		do {
 			System.out.println("Elegir opción: \n");
 			System.out.println("1. Añadir temperatura");
@@ -16,13 +17,13 @@ public class Temperaturas {
 			System.out.println("3. Mostrar temperaturas extremas");
 			System.out.println("4. Salir");
 
-			opcion = bf.readLine();
+			opcion = sc.nextInt();
 
-			switch (Integer.parseInt(opcion)) {
+			switch (opcion) {
 			case 1:
 				double temp;
 				System.out.println("Introduce la temperatura: ");
-				temp = Double.parseDouble(bf.readLine());
+				temp = sc.nextDouble();
 				almacenaTemperatura(temp, temperaturas);
 				break;
 
@@ -34,7 +35,7 @@ public class Temperaturas {
 				muestraExtremas(temperaturas);
 
 			}
-		} while (!opcion.equals("4"));
+		} while (opcion != 4);
 	}
 
 	private static void almacenaTemperatura(double d, ArrayList<Double> temperaturas) {
@@ -44,7 +45,7 @@ public class Temperaturas {
 	private static void muestraMedia(ArrayList<Double> temperaturas) {
 		double media = 0.0;
 		for (Double tp : temperaturas) {
-			media += tp.doubleValue();
+			media += tp;
 		}
 
 		media /= temperaturas.size();
@@ -53,16 +54,16 @@ public class Temperaturas {
 
 	private static void muestraExtremas(ArrayList<Double> temperaturas) {
 		double maxima;
-		maxima = temperaturas.get(0).doubleValue();
+		maxima = temperaturas.get(0);
 		double minima=maxima;
 		for(Double tp:temperaturas){
-			double aux;
-			aux=tp.doubleValue();
-			if(aux>maxima){
-				maxima=aux;
+			
+			
+			if(tp>maxima){
+				maxima=tp;
 				}
-			if(aux<minima){
-				minima=aux;
+			if(tp<minima){
+				minima=tp;
 			}
 		}
 		System.out.println("La temperatura máxima es "+ maxima);
