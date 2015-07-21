@@ -5,34 +5,36 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.Scanner;
 
 public class ListaNombres {
 	public static void main(String[] args) throws IOException {
-		Hashtable nombres = new Hashtable();
-		String opcion;
-		BufferedReader bf = new BufferedReader(
-				new InputStreamReader(System.in));
+		Hashtable<String, String> nombres = new Hashtable<String, String>();
+		int opcion;
+		Scanner sc = new Scanner(System.in);
+		sc.useDelimiter("\n");
 		do {
 			System.out.println("Elegir opción:\n");
 			System.out.println("1. Añadir nombre");
 			System.out.println("2. Eliminar nombre");
 			System.out.println("3. Mostrar todos los nombres");
 			System.out.println("4. Salir");
-			opcion = bf.readLine();
-			switch (Integer.parseInt(opcion)) {
+			opcion = sc.nextInt();
+
+			switch (opcion) {
 			case 1:
 				String nom, dni;
 				System.out.println("Introduce nombre: ");
-				nom = bf.readLine();
+				nom = sc.nextLine();
 				System.out.println("DNI: ");
-				dni=bf.readLine();
+				dni = sc.nextLine();
 				almacenaNombre(nom,dni,nombres);				
 				break;
 
 			case 2:
 				String d;
 				System.out.println("Introduzca el dni: ");
-				d = bf.readLine();
+				d = sc.next();
 				eliminaNobre(d, nombres);
 				break;
 				
@@ -40,31 +42,31 @@ public class ListaNombres {
 				mostrarTodos(nombres);
 				break;		
 			}
-		} while (!opcion.equals("4"));
+		} while (opcion != 4);
 	}
 	
 	
 
-	private static void almacenaNombre(String n, String k, Hashtable lista) {
+	private static void almacenaNombre(String n, String k, Hashtable<String, String> lista) {
 		if (!lista.containsKey(k)) {
 			lista.put(k, n);
 		}
 		
 	}
 
-	private static void eliminaNobre(String k, Hashtable lista) {
+	private static void eliminaNobre(String k, Hashtable<String, String> lista) {
 		if (lista.containsKey(k)) {
 			lista.remove(k);
 		}
 		
 	}
 	
-	private static void mostrarTodos(Hashtable lista) {
+	private static void mostrarTodos(Hashtable<String, String> lista) {
 		System.out.println("Los nombres son: ");
-		Enumeration claves = lista.keys();
+		Enumeration<String> claves = lista.keys();
 		while (claves.hasMoreElements()) {
-			String k = (String) claves.nextElement();
-			System.out.println(k + " - " +lista.get(k)); 
+			String k = claves.nextElement();
+			System.out.println(k + " - " + lista.get(k)); 
 				 
 		}
 		
