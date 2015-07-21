@@ -1,3 +1,4 @@
+package es.certificado;
 import java.util.ArrayList;
 
 public class Ejercicio1 {
