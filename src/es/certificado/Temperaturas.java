@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Temperaturas {
 	public static void main(String[] args) throws IOException {
-		ArrayList temperaturas = new ArrayList();
+		ArrayList<Double> temperaturas = new ArrayList<Double>();
 		String opcion;
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 		do {
@@ -37,27 +37,27 @@ public class Temperaturas {
 		} while (!opcion.equals("4"));
 	}
 
-	private static void almacenaTemperatura(double d, ArrayList temperaturas) {
+	private static void almacenaTemperatura(double d, ArrayList<Double> temperaturas) {
 		temperaturas.add(new Double(d));
 	}
 
-	private static void muestraMedia(ArrayList temperaturas) {
+	private static void muestraMedia(ArrayList<Double> temperaturas) {
 		double media = 0.0;
-		for (Object tp : temperaturas) {
-			media += ((Double) tp).doubleValue();
+		for (Double tp : temperaturas) {
+			media += tp.doubleValue();
 		}
 
 		media /= temperaturas.size();
 		System.out.println("La temperatura media es: " + media);
 	}
 
-	private static void muestraExtremas(ArrayList temperaturas) {
+	private static void muestraExtremas(ArrayList<Double> temperaturas) {
 		double maxima;
-		maxima=((Double)temperaturas.get(0)).doubleValue();
+		maxima = temperaturas.get(0).doubleValue();
 		double minima=maxima;
-		for(Object tp:temperaturas){
+		for(Double tp:temperaturas){
 			double aux;
-			aux=((Double)tp).doubleValue();
+			aux=tp.doubleValue();
 			if(aux>maxima){
 				maxima=aux;
 				}
