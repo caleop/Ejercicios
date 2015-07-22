@@ -1,8 +1,6 @@
 package es.certificado;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Scanner;
@@ -12,7 +10,7 @@ public class ListaNombres {
 		Hashtable<String, String> nombres = new Hashtable<String, String>();
 		int opcion;
 		Scanner sc = new Scanner(System.in);
-		sc.useDelimiter("\n");
+		
 		do {
 			System.out.println("Elegir opción:\n");
 			System.out.println("1. Añadir nombre");
@@ -25,6 +23,7 @@ public class ListaNombres {
 			case 1:
 				String nom, dni;
 				System.out.println("Introduce nombre: ");
+				sc.nextLine();
 				nom = sc.nextLine();
 				System.out.println("DNI: ");
 				dni = sc.nextLine();

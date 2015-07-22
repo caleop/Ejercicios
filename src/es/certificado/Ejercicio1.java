@@ -1,13 +1,17 @@
 package es.certificado;
-import java.util.ArrayList;
 
 public class Ejercicio1 {
-	public static void main(String[] args) {
-	
-		ArrayList v = new ArrayList();
-		v.add("texto");
-		String s = (String) v.get(0);
-		System.out.println(s);
+	public static void main(String[] args) { 
+		Wrapper<String> w=new Wrapper<String>();
+		w.setData("mi cadena");
+		String d=w.getData();
+		System.out.println("La cadena es: "+d);
+		
+		Float floa = new Float(3.0);
+		byte bit= 8;
+		Integer bi = new Integer(9);
+		bi.floatValue();
+		System.out.println(bi.floatValue());
 	}
 }
 
