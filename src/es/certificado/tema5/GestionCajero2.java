@@ -1,16 +1,16 @@
-package es.certificado;
+package es.certificado.tema5;
 
 import java.util.Scanner;
 
-import es.certificado.tema5.SaldoInsuficienteException;
+import es.certificado.Cuenta;
 
-public class GestionCajero {
+public class GestionCajero2 {
 	public static void main(String[] args) {
 
 		
 		Scanner sc = new Scanner(System.in);
 		int opcion;
-		CuentaClave cuenta = null;
+		Cuenta cuenta = null;
 		do {
 			System.out.println("1. Crear cuenta vacía");
 			System.out.println("2. Crear cuenta saldo inicial");
@@ -23,17 +23,13 @@ public class GestionCajero {
 
 			switch (opcion) {
 			case 1:
-				System.out.println("Introduce la clave para la cuenta: ");
-				String cod = sc.next();
-				cuenta = new CuentaClave(cod);
+				cuenta = new Cuenta();
 				break;
 			case 2:
-				System.out.println("Introduce la clave para la cuenta: ");
-				cod = sc.next();
 				float cantini;
 				System.out.println("Saldo inicial: ");
 				cantini = sc.nextFloat();
-				cuenta = new CuentaClave(cod, cantini);
+				cuenta = new Cuenta(cantini);
 				break;
 			case 3:
 				float ingreso;
@@ -58,3 +54,4 @@ public class GestionCajero {
 		} while (opcion != 6);
 	}
 }
+

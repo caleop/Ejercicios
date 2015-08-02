@@ -1,5 +1,7 @@
 package es.certificado;
 
+import es.certificado.tema5.SaldoInsuficienteException;
+
 public class CuentaClave extends Cuenta {
 	private String clave;
 	
@@ -16,7 +18,7 @@ public class CuentaClave extends Cuenta {
 		return clave;
 	}
 	
-	void extraer(float c) {
+	public void extraer(float c) throws SaldoInsuficienteException {
 		if (getSaldo() > c) {
 			super.extraer(c);
 		}
