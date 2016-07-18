@@ -1,6 +1,6 @@
 package es.certificado.tema9;
 
-public class Tarea2 implements Runnable {
+public class Tarea2 extends Thread {
 
 	
 	
